@@ -1,12 +1,28 @@
 import './style.css';
 
-const apiObj:IHouse = {
-	id: 67,
-	address: 'Elm St. 2343',
-	owner: 'Angie Thompson',
-	color: 'blue',
-	furnace: true
-}
+const houseObjs: IHouse[] = [
+	{
+		id: 67,
+		address: 'Elm St. 2343',
+		owner: 'Angie Thompson',
+		color: 'blue',
+		furnace: true
+	},
+	{
+		id: 57,
+		address: 'Oak St. 2343',
+		owner: 'Jim Thompson',
+		color: 'green',
+		furnace: false
+	},
+	{
+		id: 58,
+		address: 'Nnnn St. 2343',
+		owner: 'Edgar Griffton',
+		color: 'purplse',
+		furnace: true
+	}
+];
 
 class House {
 
@@ -44,14 +60,20 @@ class House {
 }
 
 // const house1 = new House(4, "Main Str. 34", "Robert Melling", "red", true);
-const house1 = new House(apiObj);
+// const house1 = new House(houses[0]);
 
-house1.setColor('brown');
+const houses = houseObjs.map(m => new House(m)); 
+
+// house1.setColor('brown');
 
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 	<div>
-	<div>${house1.describe()}</div>
+	<div>
+		${houses.map(house => {
+			return `<div>${house.describe()}</div>`;
+		}).join('')}
+	</div>
 	</div>
 `
