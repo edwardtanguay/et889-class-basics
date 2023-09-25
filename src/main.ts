@@ -1,3 +1,4 @@
+import { IHouse } from './interfaces';
 import './style.css';
 
 const houseObjs: IHouse[] = [
